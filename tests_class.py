@@ -44,3 +44,46 @@ class TestCase:
         url = 'pet/' + str(animal_id)
         self.response = self.request.send_request('get', url)
         return self.response.json()
+
+    def delete_animal(self, animal_id: str) -> dict:
+        url = 'pet/' + str(animal_id)
+        self.response = self.request.send_request('delete', url)
+        return self.response.json()
+
+    def create_pet(self, name: str ='Друг') -> str:
+        data = {
+                       "id": 337,
+                       "category": {
+                           "id": 1,
+                           "name": "string"
+                       },
+                       "name": name,
+                       "photoUrls": [
+                           "string"
+                       ],
+                       "tags": [
+                           {
+                               "id": 0,
+                               "name": "string"
+                           }
+                       ],
+                       "status": "available"
+                    }
+        self.response = self.request.send_request('post', 'pet', data)
+        self.ID = self.response.json()['id']
+        return self.ID
+
+    def check_pet(self, pet_id: str) -> dict:
+        url = 'pet/' + str(pet_id)
+        self.response = self.request.send_request('get', url)
+        return self.response.json()
+
+    def delete_pet(self, pet_id: str) -> dict:
+        url = 'pet/' + str(pet_id)
+        self.response = self.request.send_request('delete', url)
+        return self.response.json()
+
+    def find_by_status(self, status: str):
+        url = f'pet/findByStatus?status={status}'
+        self.response = self.request.send_request('get', url)
+        return self.response.json()
