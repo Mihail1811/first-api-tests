@@ -22,5 +22,5 @@ class TestID:
         status = ['available', 'pending', 'sold']
         for i in status:
             pets = test_case.find_by_status(i)
-            assert check_pet not in pets, f'ID {check_pet} присутствует в списке'
-
+            assert check_pet not in pets, \
+                f'ID {check_pet} присутствует в списке'

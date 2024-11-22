@@ -7,7 +7,7 @@ class TestCase:
         self.ID = str()
         self.response = str()
 
-    def create_animal(self, name: str ='Olaf') -> str:
+    def create_animal(self, name: str = 'Olaf') -> str:
         """
         Создание нового животного через API-запрос
         :param name: Имя животного, по умолчанию - Olaf
@@ -50,7 +50,7 @@ class TestCase:
         self.response = self.request.send_request('delete', url)
         return self.response.json()
 
-    def create_pet(self, name: str ='Друг') -> str:
+    def create_pet(self, name: str = 'Друг') -> str:
         data = {
                        "id": 337,
                        "category": {
