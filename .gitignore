@@ -1,3 +1,6 @@
 .venv/
 requirements.txt
 TASK.md
+.idea/
+.git/
+__pycache__/
